@@ -9,7 +9,7 @@ import("../pkg/index.js").catch(console.error).then(module => {
     const Index = module.Index;
     console.log(corpus);
 
-    const i = Index.new(42, 3, 0.5);
+    const i = Index.new(42, 3, 0.2);
     window.i = i;
 
     corpus.forEach((text, idx) => {
@@ -20,4 +20,5 @@ import("../pkg/index.js").catch(console.error).then(module => {
     console.log(result);
 
     console.log("size ->", i.size());
+    console.log("clusters ->", i.cluster());
 });

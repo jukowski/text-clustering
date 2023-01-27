@@ -39,6 +39,12 @@ impl Index {
         return self.hasher.size();
     }
 
+    pub fn query(&self, doc : String) -> Vec<usize> {
+        let sig = self.min_hasher.create_signature(whitespace_split(&doc.to_lowercase()));
+        let result = self.hasher.query(&sig);
+        return result.into_iter().cloned().collect();
+    }
+
     pub fn insert(&mut self, id: usize, doc : String) {
         let sig = self.min_hasher.create_signature(whitespace_split(&doc.to_lowercase()));
         self.hasher.insert(id, sig);

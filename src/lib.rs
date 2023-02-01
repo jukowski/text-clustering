@@ -75,6 +75,7 @@ impl Index {
                 clusters.push(result)
             }
         }
+        clusters.sort_by(|a, b| b.len().partial_cmp(&a.len()).unwrap());
         return clusters;
     }
 
